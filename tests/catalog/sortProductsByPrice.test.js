@@ -22,10 +22,30 @@ describe("sortProductsByPrice", () => {
       sortProductsByPrice(sortProducts, direction).map((product) => product.id),
     ).toEqual([3, 4, 1]);
   });
-
-  test.todo("все товары c 'desc' сортируются как [1, 2, 4, 5, 6, 3]");
-  test.todo("товары [3, 1, 4] c 'desc' сортируются как [1, 4, 3]");
-  test.todo("товары [5, 2, 6] c 'desc' сортируются как [2, 5, 6]");
+  test("все товары c 'desc' сортируются как [1, 2, 4, 5, 6, 3]", () => {
+    const direction = "desc";
+    expect(
+      sortProductsByPrice(products, direction).map((product) => product.id),
+    ).toEqual([1, 2, 4, 5, 6, 3]);
+  });
+  test("товары [3, 1, 4] c 'desc' сортируются как [1, 4, 3]", () => {
+    const sortProducts = products.filter((product) =>
+      [3, 1, 4].includes(product.id),
+    );
+    const direction = "desc";
+    expect(
+      sortProductsByPrice(sortProducts, direction).map((product) => product.id),
+    ).toEqual([1, 4, 3]);
+  });
+  test("товары [5, 2, 6] c 'desc' сортируются как [2, 5, 6]", () => {
+    const sortProducts = products.filter((product) =>
+      [5, 2, 6].includes(product.id),
+    );
+    const direction = "desc";
+    expect(
+      sortProductsByPrice(sortProducts, direction).map((product) => product.id),
+    ).toEqual([2, 5, 6]);
+  });
   test.todo("'asc' не меняет исходный массив [1, 3, 4]");
   test.todo("'desc' не меняет исходный массив [1, 3, 4]");
   test.todo("направление по умолчанию не меняет исходный массив всех товаров");
