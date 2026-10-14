@@ -56,6 +56,15 @@ describe("sortProductsByPrice", () => {
     sortProductsByPrice(sortProducts, direction);
     expect(sortProducts).toEqual(originalProducts);
   });
-  test.todo("'desc' не меняет исходный массив [1, 3, 4]");
+  test("'desc' не меняет исходный массив [1, 3, 4]", () => {
+    const sortProducts = products.filter((product) =>
+      [1, 3, 4].includes(product.id),
+    );
+    const originalProducts = [...sortProducts];
+    const direction = "desc";
+
+    sortProductsByPrice(sortProducts, direction);
+    expect(sortProducts).toEqual(originalProducts);
+  });
   test.todo("направление по умолчанию не меняет исходный массив всех товаров");
 });
