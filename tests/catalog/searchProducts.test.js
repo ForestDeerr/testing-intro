@@ -44,7 +44,22 @@ describe("searchProducts", () => {
       ),
     ).toEqual([1]);
   });
-  test.todo("пустая строка возвращает товары с ID [1, 2, 3, 4, 5, 6]");
-  test.todo("строка из пробелов возвращает товары с ID [1, 2, 3, 4, 5, 6]");
-  test.todo("'\\t\\n' возвращает товары с ID [1, 2, 3, 4, 5, 6]");
+  test("пустая строка возвращает товары с ID [1, 2, 3, 4, 5, 6]", () => {
+    const query = "";
+    expect(
+      searchProducts(products, query.trim()).map((product) => product.id),
+    ).toEqual([1, 2, 3, 4, 5, 6]);
+  });
+  test("строка из пробелов возвращает товары с ID [1, 2, 3, 4, 5, 6]", () => {
+    const query = "   ";
+    expect(
+      searchProducts(products, query).map((product) => product.id),
+    ).toEqual([1, 2, 3, 4, 5, 6]);
+  });
+  test("'\\t\\n' возвращает товары с ID [1, 2, 3, 4, 5, 6]", () => {
+    const query = "\t\n";
+    expect(
+      searchProducts(products, query).map((product) => product.id),
+    ).toEqual([1, 2, 3, 4, 5, 6]);
+  });
 });
