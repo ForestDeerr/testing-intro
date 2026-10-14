@@ -41,7 +41,22 @@ describe("getProductById", () => {
 
     expect(getProductById(products, id)).toEqual(expectedProduct);
   });
-  test.todo("строковый ID '1' возвращает null");
-  test.todo("ID undefined возвращает null");
-  test.todo("ID NaN возвращает null");
+  test("строковый ID '1' возвращает null", () => {
+    const id = "1";
+    const expectedProduct = null;
+
+    expect(getProductById(products, id)).toEqual(expectedProduct);
+  });
+  test("ID undefined возвращает null", () => {
+    const id = undefined;
+    const expectedProduct = null;
+
+    expect(getProductById(products, id)).toEqual(expectedProduct);
+  });
+  test("ID NaN возвращает null", () => {
+    const id = NaN;
+    const expectedProduct = null;
+
+    expect(getProductById(products, id)).toEqual(expectedProduct);
+  });
 });
