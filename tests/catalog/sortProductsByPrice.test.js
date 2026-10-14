@@ -66,5 +66,10 @@ describe("sortProductsByPrice", () => {
     sortProductsByPrice(sortProducts, direction);
     expect(sortProducts).toEqual(originalProducts);
   });
-  test.todo("направление по умолчанию не меняет исходный массив всех товаров");
+  test("направление по умолчанию не меняет исходный массив всех товаров", () => {
+    const originalProducts = [...products];
+
+    sortProductsByPrice(products);
+    expect(products).toEqual(originalProducts);
+  });
 });
