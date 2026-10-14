@@ -8,7 +8,13 @@ describe("filterByCategory", () => {
       filterByCategory(products, category).map((product) => product.id),
     ).toEqual([1, 2, 3, 4, 5, 6]);
   });
-  test.todo("undefined возвращает товары с ID [1, 2, 3, 4, 5, 6]");
+  test("undefined возвращает товары с ID [1, 2, 3, 4, 5, 6]", () => {
+    const category = undefined;
+    expect(
+      filterByCategory(products, category).map((product) => product.id),
+    ).toEqual([1, 2, 3, 4, 5, 6]);
+  });
+
   test.todo("пустая строка возвращает товары с ID [1, 2, 3, 4, 5, 6]");
   test.todo("'electronics' возвращает товары с ID [1, 2]");
   test.todo("'books' возвращает товары с ID [3, 6]");
