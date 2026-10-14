@@ -39,7 +39,13 @@ describe("filterByCategory", () => {
       filterByCategory(products, category).map((product) => product.id),
     ).toEqual([4, 5]);
   });
-  test.todo("'clothes' возвращает пустой массив");
+  test("'clothes' возвращает пустой массив", () => {
+    const category = "clothes";
+    expect(
+      filterByCategory(products, category).map((product) => product.id),
+    ).toEqual([]);
+  });
+
   test.todo("'toys' возвращает пустой массив");
   test.todo("'sports' возвращает пустой массив");
 });
