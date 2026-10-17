@@ -24,9 +24,16 @@ function addToCart(cart, product, quantity) {
   return cart;
 }
 
-function changeQuantity(cart, product, quantity) {
-  return notImplemented();
+function changeQuantity(cart, productId, quantity) {
+  cart.map((item) => {
+    if (item.id === productId) {
+      item.quantity = quantity;
+    }
+  });
+
+  return cart;
 }
+
 function removeFromCart() {
   return notImplemented();
 }
