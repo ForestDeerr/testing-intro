@@ -7,11 +7,10 @@ function addToCart(cart, product, quantity) {
     throw new RangeError("Количество должно быть больше нуля");
   }
 
-  if (quantity > product.stock) {
-    throw new RangeError("Недостаточно товара на складе");
-  }
-
   if (cart.length === 0) {
+    if (quantity > product.stock) {
+      throw new RangeError("Недостаточно товара на складе");
+    }
     cart.push({ ...product, quantity: quantity });
     return cart;
   }
