@@ -6,8 +6,13 @@ function addToCart(cart, product, quantity) {
   cart.push({ ...product, quantity: quantity });
   return cart;
 }
-function changeQuantity() {
-  return notImplemented();
+function changeQuantity(cart, product, quantity) {
+  cart = cart.map((item) =>
+    item.id === product.id
+      ? { ...item, quantity: item.quantity + quantity }
+      : item,
+  );
+  return cart;
 }
 function removeFromCart() {
   return notImplemented();
