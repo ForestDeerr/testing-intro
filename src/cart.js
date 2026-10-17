@@ -1,14 +1,31 @@
 function notImplemented() {
-  throw new Error('Корзина ещё не реализована. Сначала прочитайте тесты.');
+  throw new Error("Корзина ещё не реализована. Сначала прочитайте тесты.");
 }
 
-function addToCart() { return notImplemented(); }
-function changeQuantity() { return notImplemented(); }
-function removeFromCart() { return notImplemented(); }
-function calculateCartSubtotal() { return notImplemented(); }
-function calculateOrderTotal() { return notImplemented(); }
+function addToCart(cart, product, quantity) {
+  cart.push({ ...product, quantity: quantity });
+  return cart;
+}
+function changeQuantity() {
+  return notImplemented();
+}
+function removeFromCart() {
+  return notImplemented();
+}
+function calculateCartSubtotal() {
+  return notImplemented();
+}
+function calculateOrderTotal() {
+  return notImplemented();
+}
 
-const cartApi = { addToCart, changeQuantity, removeFromCart, calculateCartSubtotal, calculateOrderTotal };
+const cartApi = {
+  addToCart,
+  changeQuantity,
+  removeFromCart,
+  calculateCartSubtotal,
+  calculateOrderTotal,
+};
 
-if (typeof module !== 'undefined') module.exports = cartApi;
-if (typeof window !== 'undefined') window.cartApi = cartApi;
+if (typeof module !== "undefined") module.exports = cartApi;
+if (typeof window !== "undefined") window.cartApi = cartApi;
