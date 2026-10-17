@@ -31,6 +31,9 @@ function changeQuantity(cart, productId, quantity) {
 
   cart.map((item) => {
     if (item.id === productId) {
+      if (quantity > item.stock) {
+        throw new RangeError("Недостаточно товара на складе");
+      }
       item.quantity = quantity;
     }
   });
