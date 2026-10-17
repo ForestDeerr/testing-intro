@@ -25,6 +25,11 @@ function addToCart(cart, product, quantity) {
 }
 
 function changeQuantity(cart, productId, quantity) {
+  const product = cart.find((item) => item.id === productId);
+  if (!product) {
+    return cart;
+  }
+
   if (quantity <= 0) {
     throw new RangeError("Количество должно быть больше нуля");
   }
