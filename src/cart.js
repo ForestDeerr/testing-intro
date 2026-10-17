@@ -25,6 +25,10 @@ function addToCart(cart, product, quantity) {
 }
 
 function changeQuantity(cart, productId, quantity) {
+  if (quantity <= 0) {
+    throw new RangeError("Количество должно быть больше нуля");
+  }
+
   cart.map((item) => {
     if (item.id === productId) {
       item.quantity = quantity;
