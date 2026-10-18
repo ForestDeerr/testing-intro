@@ -1,4 +1,6 @@
 const FREE_DELIVERY_THRESHOLD = 50000;
+const DELIVERY_COST = 30000;
+const PROMO_DISCOUNT_RATE = 0.1;
 
 function notImplemented() {
   throw new Error("Корзина ещё не реализована. Сначала прочитайте тесты.");
@@ -58,8 +60,9 @@ function calculateCartSubtotal(cart) {
 
 function calculateOrderTotal(cart, promo) {
   const subtotal = calculateCartSubtotal(cart);
-  const discount = 0;
-  const delivery = subtotal >= FREE_DELIVERY_THRESHOLD ? 0 : 30000;
+  const discount = promo === "SAVE10" ? subtotal * PROMO_DISCOUNT_RATE : 0;
+  const delivery = subtotal >= FREE_DELIVERY_THRESHOLD ? 0 : DELIVERY_COST;
+
   const total = subtotal - discount + delivery;
 
   return {
